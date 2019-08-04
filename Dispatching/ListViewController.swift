@@ -61,7 +61,55 @@ class ListViewController: UIViewController {
     }
 
     @objc func startOperation() {
-        // TODO: Simulate download tasks with dispatch group and semaphore
+        downloadTasks = []
+        completedTasks = []
+
+        navigationItem.rightBarButtonItem?.isEnabled = true
+        randomSwitch.isEnabled = false
+        taskSlider.isEnabled = false
+        countSlider.isEnabled = false
+
+        let dispatchQueue = DispatchQueue(label: "com.william.dispatchQueue", qos: .userInitiated, attributes: .concurrent)
+        let dispatchGroup = DispatchGroup()
+        let dispatchSemaphore = DispatchSemaphore(value: option.maxAsyncTasks)
+
+        downloadTasks = (1...option.jobCount).map({ (i) -> DownloadTask in
+            let id = "\(i)"
+
+            return DownloadTask(id: id, stateUpdatedHandler: { (task) in
+                DispatchQueue.main.async { [unowned self] in
+                    guard let index = self.downloadTasks.indexOfTaskWith(id: id) else {
+                        return
+                    }
+
+                    switch task.state {
+                    case .completed:
+                        self.downloadTasks.remove(at: index)
+                        self.completedTasks.insert(task, at: 0)
+                    case .pending, .inProgress(_):
+                        guard let cell = self.downloadTableView.cellForRow(at: IndexPath(row: index, section: 0)) as? ProgressCell else {
+                            return
+                        }
+
+                        cell.configure(task)
+                        self.downloadTableView.beginUpdates()
+                        self.downloadTableView.endUpdates()
+                    }
+                }
+            })
+        })
+
+        downloadTasks.forEach {
+            $0.startTask(queue: dispatchQueue, group: dispatchGroup, semaphore: dispatchSemaphore, randomizeTime: self.option.isRandomizedTime)
+        }
+
+        dispatchGroup.notify(queue: .main) { [unowned self] in
+            self.presentAlertWith(title: "Info", message: "All download tasks has been completed")
+            self.navigationItem.rightBarButtonItem?.isEnabled = true
+            self.randomSwitch.isEnabled = true
+            self.countSlider.isEnabled = true
+            self.taskSlider.isEnabled = true
+        }
     }
 
     // MARK: - Private method
