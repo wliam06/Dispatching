@@ -7,17 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27004CB222F6AD91008DF714 /* ImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27004CB122F6AD91008DF714 /* ImageExtensions.swift */; };
+		27BCFC5722F6A35900AB451F /* ProgressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BCFC5622F6A35900AB451F /* ProgressCell.swift */; };
+		3DBBF9E022F3F191008819AE /* DownloadTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBBF9DF22F3F191008819AE /* DownloadTask.swift */; };
 		3DF91B4122E069AF00713973 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF91B4022E069AF00713973 /* AppDelegate.swift */; };
-		3DF91B4322E069AF00713973 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF91B4222E069AF00713973 /* ViewController.swift */; };
+		3DF91B4322E069AF00713973 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF91B4222E069AF00713973 /* ListViewController.swift */; };
 		3DF91B4622E069AF00713973 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DF91B4422E069AF00713973 /* Main.storyboard */; };
 		3DF91B4822E069B100713973 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DF91B4722E069B100713973 /* Assets.xcassets */; };
 		3DF91B4B22E069B100713973 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DF91B4922E069B100713973 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		27004CB122F6AD91008DF714 /* ImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtensions.swift; sourceTree = "<group>"; };
+		27BCFC5622F6A35900AB451F /* ProgressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCell.swift; sourceTree = "<group>"; };
+		3DBBF9DF22F3F191008819AE /* DownloadTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadTask.swift; sourceTree = "<group>"; };
 		3DF91B3D22E069AF00713973 /* Dispatching.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dispatching.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DF91B4022E069AF00713973 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3DF91B4222E069AF00713973 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3DF91B4222E069AF00713973 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		3DF91B4522E069AF00713973 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3DF91B4722E069B100713973 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3DF91B4A22E069B100713973 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -55,7 +61,10 @@
 			isa = PBXGroup;
 			children = (
 				3DF91B4022E069AF00713973 /* AppDelegate.swift */,
-				3DF91B4222E069AF00713973 /* ViewController.swift */,
+				27004CB122F6AD91008DF714 /* ImageExtensions.swift */,
+				27BCFC5622F6A35900AB451F /* ProgressCell.swift */,
+				3DBBF9DF22F3F191008819AE /* DownloadTask.swift */,
+				3DF91B4222E069AF00713973 /* ListViewController.swift */,
 				3DF91B4422E069AF00713973 /* Main.storyboard */,
 				3DF91B4722E069B100713973 /* Assets.xcassets */,
 				3DF91B4922E069B100713973 /* LaunchScreen.storyboard */,
@@ -135,7 +144,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DF91B4322E069AF00713973 /* ViewController.swift in Sources */,
+				27004CB222F6AD91008DF714 /* ImageExtensions.swift in Sources */,
+				3DF91B4322E069AF00713973 /* ListViewController.swift in Sources */,
+				3DBBF9E022F3F191008819AE /* DownloadTask.swift in Sources */,
+				27BCFC5722F6A35900AB451F /* ProgressCell.swift in Sources */,
 				3DF91B4122E069AF00713973 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
