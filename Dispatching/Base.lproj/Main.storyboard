@@ -38,10 +38,10 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ElO-gn-VRM">
-                                        <rect key="frame" x="18" y="0.0" width="378" height="96"/>
+                                        <rect key="frame" x="14.5" y="0.0" width="385" height="96"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="vsR-xw-cR5">
-                                                <rect key="frame" x="0.0" y="0.0" width="378" height="48"/>
+                                                <rect key="frame" x="3.5" y="0.0" width="378" height="48"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="GG0-1z-g9W">
                                                         <rect key="frame" x="0.0" y="9" width="177" height="30"/>
@@ -52,7 +52,7 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="zy8-At-oJr">
+                                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="15" minValue="2" maxValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="zy8-At-oJr">
                                                                 <rect key="frame" x="85" y="0.0" width="94" height="31"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="90" id="mvu-vc-SSl"/>
@@ -86,7 +86,7 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Quy-3Y-hLT">
-                                                <rect key="frame" x="8.5" y="48" width="361" height="48"/>
+                                                <rect key="frame" x="0.0" y="48" width="385" height="48"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task Paralleling" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j6b-Be-iJs">
                                                         <rect key="frame" x="0.0" y="14" width="118" height="20.5"/>
@@ -95,7 +95,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="FQ3-iK-X51">
-                                                        <rect key="frame" x="132" y="9" width="231" height="31"/>
+                                                        <rect key="frame" x="132" y="9" width="255" height="31"/>
                                                         <connections>
                                                             <action selector="taskSliderDidChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="a4d-tK-n0F"/>
                                                         </connections>
@@ -111,7 +111,7 @@
                                         <rect key="frame" x="0.0" y="96" width="414" height="339"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="108" id="jFg-hV-haN">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="10" reuseIdentifier="Cell" rowHeight="108" id="jFg-hV-haN" customClass="ProgressCell" customModule="Dispatching" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="414" height="108"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jFg-hV-haN" id="tV8-pz-cLu">
@@ -158,6 +158,12 @@
                                                         <constraint firstItem="ySy-eR-Chg" firstAttribute="top" secondItem="tV8-pz-cLu" secondAttribute="top" constant="16" id="bTb-b5-iZq"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="downloadImageView" destination="KzQ-gu-lTu" id="pes-MA-qiV"/>
+                                                    <outlet property="progressView" destination="E66-eB-53I" id="U8r-Bt-V8j"/>
+                                                    <outlet property="subtitleLabel" destination="DL5-8J-LJz" id="aSG-h6-awo"/>
+                                                    <outlet property="titleLabel" destination="r4i-vh-fH2" id="hzN-tZ-0bS"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                         <connections>
@@ -168,7 +174,7 @@
                                         <rect key="frame" x="0.0" y="435" width="414" height="339"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="108" id="eT8-XD-prs">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationWidth="10" reuseIdentifier="Cell" rowHeight="108" id="eT8-XD-prs" customClass="ProgressCell" customModule="Dispatching" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="414" height="108"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eT8-XD-prs" id="4bK-Ns-hX3">

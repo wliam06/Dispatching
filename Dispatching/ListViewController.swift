@@ -50,10 +50,14 @@ class ListViewController: UIViewController {
                                   maxAsyncTasks: Int(taskSlider.value), isRandomizedTime: randomSwitch.isOn)
         downloadTableView.tableFooterView = UIView()
         completedTableView.tableFooterView = UIView()
+        setupNavigationItems()
     }
 
     private func setupNavigationItems() {
-        let startButtonItem = UIBarButtonItem(title: "Start", style: .plain, target: self, action: #selector(startOperation))
+        let startButtonItem = UIBarButtonItem(title: "Start",
+                                              style: .plain, target: self,
+                                              action: #selector(startOperation))
+        navigationItem.rightBarButtonItem = startButtonItem
     }
 
     @objc func startOperation() {
@@ -62,9 +66,11 @@ class ListViewController: UIViewController {
 
     // MARK: - Private method
     private func didSetJobLabel() {
+        countLabel.text = "\(option.jobCount) Tasks"
     }
 
     private func didSetAsyncTaskLabel() {
+        taskLabel.text = "\(option.maxAsyncTasks) Max Parallel Running Tasks"
     }
 
     @IBAction func taskSliderDidChanged(_ sender: UISlider) {
@@ -89,10 +95,37 @@ class ListViewController: UIViewController {
 
 extension ListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+        if tableView == downloadTableView {
+            return downloadTasks.count
+        } else if tableView == completedTableView {
+            return completedTasks.count
+        } else {
+            fatalError("Undefined numberOfRowsInSection")
+        }
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ProgressCell
+        let task: DownloadTask
+
+        if tableView == downloadTableView {
+            task = downloadTasks[indexPath.row]
+        } else if tableView == completedTableView {
+            task = completedTasks[indexPath.row]
+        } else {
+            fatalError()
+        }
+        cell.configure(task)
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if tableView == downloadTableView {
+            return "Download Queue \(downloadTasks.count)"
+        } else if tableView == completedTableView {
+            return "Completed \(completedTasks.count)"
+        } else {
+            return nil
+        }
     }
 }
