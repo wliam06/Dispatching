@@ -81,6 +81,7 @@ extension Array where Element == DownloadTask {
     }
 
     func indexOfTaskWith(id: String) -> Int? {
-        return self.firstIndex(where: {$0.id == id })
+//        return self.firstIndex(where: {$0.id == id })
+        return self.firstIndex(where: { $0 })
     }
 }

@@ -163,6 +163,7 @@ extension ListViewController: UITableViewDataSource {
         } else {
             fatalError()
         }
+
         cell.configure(task)
         return cell
     }
