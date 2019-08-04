@@ -24,7 +24,33 @@ class DownloadTask {
         self.stateUpdatedHandler = stateUpdatedHandler
     }
 
-    func startTask(queue: DispatchQueue, group: DispatchGroup, semaphore: DispatchSemaphore, randomizeTime: Bool = true) {
+    func startTask(queue: DispatchQueue, group: DispatchGroup,
+                   semaphore: DispatchSemaphore, randomizeTime: Bool = true) {
+        queue.async(group: group) { [weak self] in
+            group.enter()
+
+            semaphore.wait()
+
+            self?.state = .inProgress(5)
+            self?.startSleep(randomizeTime: randomizeTime)
+
+            self?.state = .inProgress(20)
+            self?.startSleep(randomizeTime: randomizeTime)
+
+            self?.state = .inProgress(40)
+            self?.startSleep(randomizeTime: randomizeTime)
+
+            self?.state = .inProgress(60)
+            self?.startSleep(randomizeTime: randomizeTime)
+
+            self?.state = .inProgress(80)
+            self?.startSleep(randomizeTime: randomizeTime)
+
+            self?.state = .completed
+
+            group.leave()
+            semaphore.signal()
+        }
     }
 
     private func startSleep(randomizeTime: Bool = true) {

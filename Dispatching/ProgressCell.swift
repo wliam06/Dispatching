@@ -29,15 +29,15 @@ class ProgressCell: UITableViewCell {
         switch task.state {
         case .pending:
             progressView.isHidden = true
-            titleLabel.isHidden = true
+            downloadImageView.isHidden = true
             subtitleLabel.isHidden = true
         case .inProgress(let complete):
             progressView.isHidden = false
             progressView.progress = Float(Double(complete) / 100.0)
             subtitleLabel.isHidden = false
+            subtitleLabel.text = "\(complete)%"
             downloadImageView.isHidden = false
         case .completed:
-            progressView.isHidden = true
             subtitleLabel.isHidden = true
             downloadImageView.isHidden = false
         }
