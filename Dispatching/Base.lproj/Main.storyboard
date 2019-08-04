@@ -13,7 +13,6 @@
         <!--Navigation Controller-->
         <scene sceneID="nMe-Pw-kUQ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IVd-Vc-4Yj" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="QYn-P0-2dr" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XVe-Bf-xAS">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -23,13 +22,14 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="aHz-Pq-8fv"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IVd-Vc-4Yj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-774" y="127"/>
         </scene>
-        <!--View Controller-->
+        <!--List View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Dispatching" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ListViewController" customModule="Dispatching" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -57,6 +57,9 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="90" id="mvu-vc-SSl"/>
                                                                 </constraints>
+                                                                <connections>
+                                                                    <action selector="countSliderDidChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="FsK-Im-HO0"/>
+                                                                </connections>
                                                             </slider>
                                                         </subviews>
                                                     </stackView>
@@ -71,6 +74,9 @@
                                                             </label>
                                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WRI-uS-kJa">
                                                                 <rect key="frame" x="128" y="0.0" width="51" height="31"/>
+                                                                <connections>
+                                                                    <action selector="timeSwitchDidChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="gcz-bu-JCk"/>
+                                                                </connections>
                                                             </switch>
                                                         </subviews>
                                                     </stackView>
@@ -80,7 +86,7 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Quy-3Y-hLT">
-                                                <rect key="frame" x="12.5" y="48" width="353" height="48"/>
+                                                <rect key="frame" x="8.5" y="48" width="361" height="48"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task Paralleling" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j6b-Be-iJs">
                                                         <rect key="frame" x="0.0" y="14" width="118" height="20.5"/>
@@ -89,7 +95,10 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="FQ3-iK-X51">
-                                                        <rect key="frame" x="132" y="9" width="223" height="31"/>
+                                                        <rect key="frame" x="132" y="9" width="231" height="31"/>
+                                                        <connections>
+                                                            <action selector="taskSliderDidChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="a4d-tK-n0F"/>
+                                                        </connections>
                                                     </slider>
                                                 </subviews>
                                                 <constraints>
@@ -151,6 +160,9 @@
                                                 </tableViewCellContentView>
                                             </tableViewCell>
                                         </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="BRg-0n-yuG"/>
+                                        </connections>
                                     </tableView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HtM-ds-MJI">
                                         <rect key="frame" x="0.0" y="435" width="414" height="339"/>
@@ -205,6 +217,9 @@
                                                 </tableViewCellContentView>
                                             </tableViewCell>
                                         </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="Bwa-W5-Gi2"/>
+                                        </connections>
                                     </tableView>
                                 </subviews>
                                 <constraints>
@@ -226,9 +241,19 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="68G-2a-a2u"/>
+                    <connections>
+                        <outlet property="completedTableView" destination="HtM-ds-MJI" id="EsS-5L-BIb"/>
+                        <outlet property="countLabel" destination="h1C-mg-RVd" id="e5x-bT-wwm"/>
+                        <outlet property="countSlider" destination="zy8-At-oJr" id="abe-43-8EM"/>
+                        <outlet property="downloadTableView" destination="zfV-Hy-Dis" id="tVN-XR-dkT"/>
+                        <outlet property="randomSwitch" destination="WRI-uS-kJa" id="HqZ-d9-cda"/>
+                        <outlet property="taskLabel" destination="j6b-Be-iJs" id="lvS-18-c7o"/>
+                        <outlet property="taskSlider" destination="FQ3-iK-X51" id="4UF-nj-VaS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="78" y="127"/>
         </scene>
     </scenes>
 </document>
