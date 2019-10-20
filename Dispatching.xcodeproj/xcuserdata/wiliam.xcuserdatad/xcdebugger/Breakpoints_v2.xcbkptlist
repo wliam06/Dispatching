@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Dispatching/ProgressCell.swift"
-            timestampString = "586597983.901195"
+            filePath = "Dispatching/ListViewController.swift"
+            timestampString = "586621355.985824"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
-            landmarkName = "configure(_:)"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
+            landmarkName = "startOperation()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Dispatching/ProgressCell.swift"
-            timestampString = "586597983.9017611"
+            filePath = "Dispatching/ListViewController.swift"
+            timestampString = "586621355.985891"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "configure(_:)"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
+            landmarkName = "startOperation()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

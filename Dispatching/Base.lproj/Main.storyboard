@@ -52,7 +52,7 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="1" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="zy8-At-oJr">
+                                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="zy8-At-oJr">
                                                                 <rect key="frame" x="85" y="0.0" width="94" height="31"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="90" id="mvu-vc-SSl"/>
@@ -94,7 +94,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="1" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="FQ3-iK-X51">
+                                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="FQ3-iK-X51">
                                                         <rect key="frame" x="124" y="9" width="98" height="31"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="94" id="duf-B8-oDT"/>
